@@ -1,23 +1,23 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 
 function Player(props) {
-    // Download Functions 
-    /**
-     * Helper function for downloadSong
-     * @param {} blob The blobURL of the song.
-     * @param {string} filename The name with which to download the file.
-     */
-    const downloadBlob = (blob, filename) => {
-        var a = document.createElement('a');
-        a.download = filename;
-        a.href = blob;
-        document.body.appendChild(a);
-        props.setProgress(90)
-        a.click();
-        a.remove();
-        props.setProgress(100)
-    }
+  const downloadSong = async () => {
+    props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}...`);
+    props.setProgress(10);
+
+    const url = props.details.downloadUrl[4]["link"];
+    const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]}.m4a`;
+
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = filename;
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+
+    props.setProgress(100);
+  };
 
     /**
      * Starts downloading the song from link sent in props.
@@ -208,13 +208,12 @@ function Player(props) {
 
                                     </div>
                                     Download
-                                    <button className="focus:outline-none pr-4 group" id="downloadBtn" onClick={downloadSong}>
-                                        <svg className="w-4 h-4 group-hover:dark:text-white group-hover:text-gray-800 " viewBox="0 0 24 24" fill="none"
-                                            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5" />
-                                        </svg>
-                                    </button>
-                                </li>
+                                   <button className="focus:outline-none pr-4 group" id="downloadBtn" onClick={downloadSong}>
+        <svg className="w-4 h-4 group-hover:dark:text-white group-hover:text-gray-800 " viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5" />
+        </svg>
+      </button>                           </li>
                                 <li className="h-auto text-right text-lg pt-2">
                                     <p className="pr-8 pb-2" id="copyrights_label">{props.details.copyright}</p>
 
