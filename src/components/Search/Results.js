@@ -19,7 +19,7 @@ function Results(props) { // query
      * @param {string} songname 
      */
     const search = async (songname) => {
-        let uri = `https://jiosaavn-api-codyandersan.vercel.app/search/all?query=${songname.replaceAll(" ", "+")}&page=1&limit=6`
+        let uri = `https://down-spot.vercel.app/search/all?query=${songname.replaceAll(" ", "+")}&page=1&limit=10`
         props.setProgress(40)
         const response = await fetch(uri)
         props.setProgress(70)
@@ -49,7 +49,7 @@ function Results(props) { // query
     }
 
     const getSongDetails = async (songId) => {
-        let uri = `https://jiosaavn-api-codyandersan.vercel.app/songs?id=${songId}`
+        let uri = `https://down-spot.vercel.app/songs?id=${songId}`
 
         props.setProgress(30)
         let data = await fetch(uri)
