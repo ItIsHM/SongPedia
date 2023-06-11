@@ -1,20 +1,19 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useNavigate } from "react-router-dom";
+const downloadSong = () => {
+  props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}...`);
+  props.setProgress(10);
 
-function Player(props) {
-  const downloadSong = async () => {
-    props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}...`);
-    props.setProgress(10);
+  const url = props.details.downloadUrl[4]["link"];
+  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]}.m4a`;
 
-    const url = props.details.downloadUrl[4]["link"];
-    const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]}.m4a`;
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = filename;
+  document.body.appendChild(anchor);
+  anchor.click();
+  document.body.removeChild(anchor);
 
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = filename;
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
+  props.setProgress(100);
+};
 
     props.setProgress(100);
   };
