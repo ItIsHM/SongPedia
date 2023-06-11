@@ -10,7 +10,7 @@ function AlbumsShowcase(props) { //setDetails (for player), albumId
     const navigate = useNavigate(); //for navigating to /listen
 
     const getDetails = async () => {
-        let uri = `https://jiosaavn-api-codyandersan.vercel.app/albums?id=${props.albumId}`
+        let uri = `https://down-spot.vercel.app/albums?id=${props.albumId}`
 
         props.setProgress(30)
         let data = await fetch(uri)
