@@ -24,7 +24,7 @@ function App() {
   const [progress, setProgress] = useState(0) //progress of loading bar
   const [details, setDetails] = useState(null)
   const [alert, setAlert] = useState(null)
-  const [theme, setTheme] = useState("dark")
+  const [theme, setTheme] = useState("light")
 
   const [albumId, setAlbumId] = useState(null)
   const [playlistId, setPlaylistId] = useState(null)
@@ -49,7 +49,7 @@ function App() {
   }
 
   useEffect(() => {
-    showAlert("By using TuneStation, you agree to be bound by the Terms of Use.")
+    showAlert("By using SongPedia, you agree to be bound by the Terms of Use.")
   }, [])
 
   return (
