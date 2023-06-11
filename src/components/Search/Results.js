@@ -9,7 +9,7 @@ function Results(props) { // query
     // Search for the song once the component renders
     useEffect(() => {
         search(props.query)
-        document.title = `'${props.query}' - TuneStation`
+        document.title = `'${props.query}' - SongPedia`
     }, [])
 
     const [results, setResults] = useState([]) //the results obtained from search()
