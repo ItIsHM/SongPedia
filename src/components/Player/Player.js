@@ -23,7 +23,7 @@ function Player(props) {
      * Starts downloading the song from link sent in props.
      */
     const downloadSong = async () => {
-        if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and Tunestation will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
+        if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
 
         props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}...`)
         props.setProgress(10)
@@ -59,7 +59,7 @@ function Player(props) {
             navigate("/search")
             return
         }
-        document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - TuneStation`
+        document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - SongPedia`
         const audio = audioRef.current;
         document.getElementById("player").scrollIntoView(true)
         audio.addEventListener('loadedmetadata', () => {
@@ -88,11 +88,11 @@ function Player(props) {
     const handlePlayPause = () => {
         const audio = audioRef.current;
         if (isPlaying) {
-            document.title = `Paused ${props.details.name.replace(/&quot;/g, '"')} - TuneStation`
+            document.title = `Paused ${props.details.name.replace(/&quot;/g, '"')} - SongPedia`
             audio.pause();
             setIsPlaying(false);
         } else {
-            document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - TuneStation`
+            document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - SongPedia`
             audio.play();
             setIsPlaying(true);
         }
