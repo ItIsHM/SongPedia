@@ -11,7 +11,7 @@ function Terms(props) {
         <div className={props.theme}>
             <div className="container px-5 pt-28 pb-10 mx-auto text-gray-700 dark:text-gray-400 body-font bg-light-100 dark:bg-deep-900 ">
                 <div className="flex flex-col text-center w-full mb-10">
-                    <h1 className='sm:text-3xl text-2xl font-medium title-font mb-4 text-black dark:text-white'>Terms of Use for TuneStation</h1>
+                    <h1 className='sm:text-3xl text-2xl font-medium title-font mb-4 text-black dark:text-white'>Terms of Use for SongPedia</h1>
                     <p className='text-lg sm:text-xl text-gray-900 dark:text-gray-100'>Welcome to SongPedia, an online music streaming and downloading platform built for the sole purpose of personal use and learning. By accessing or using SongPedia, you agree to be bound by these Terms of Use. If you do not agree to these Terms of Use, please <b>do not</b> use SongPedia.</p>
                 </div>
                 <hr />
