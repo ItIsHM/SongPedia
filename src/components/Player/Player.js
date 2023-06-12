@@ -9,44 +9,41 @@ function Player(props) {
      * @param {string} filename The name with which to download the file.
      */
     const downloadBlob = (blob, filename) => {
-  var a = document.createElement('a');
-  a.download = filename;
-  a.href = blob;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  props.setProgress(100);
+        var a = document.createElement('a');
+        a.download = filename;
+        a.href = blob;
+        document.body.appendChild(a);
+        props.setProgress(90)
+        a.click();
+        a.remove();
+        props.setProgress(100)
+    }
 
-  // Return the blob URL
-  return blob;
-}
- 
     /**
      * Starts downloading the song from link sent in props.
      */
     const downloadSong = async () => {
-       
+        if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
 
         props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}...`)
         props.setProgress(10)
 
+        const url = props.details.downloadUrl[4]["link"]
 
-  const response = await fetch(url);
+        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]}.m4a`
 
-  props.setProgress(50);
-  const blob = await response.blob();
 
-  props.setProgress(70);
-  
-  // Convert the blob to a URL
-  let blobUrl = URL.createObjectURL(blob);
-  
-  // Download the file using the converted URL
-  downloadBlob(blobUrl, filename);
 
-  // ...
-}
+        const response = await fetch(url)
 
+        props.setProgress(50)
+        const blob = await response.blob()
+
+        props.setProgress(70)
+        let blobUrl = window.URL.createObjectURL(blob);
+        downloadBlob(blobUrl, filename);
+
+    }
 
 
 
