@@ -8,7 +8,7 @@ function NavBar(props) { //toggleTheme
         <div className={props.theme}>
             <header>
                 <nav className="flex flex-wrap items-center justify-between w-full py-2 md:py-3 px-4 text-lg fixed top-0 z-50 dark:text-gray-700 text-gray-400 dark:bg-light-200 bg-deep-900 body-font">
-                    <Link to='/' className="flex title-font font-medium items-center dark:text-black text-white my-1 md:mb-0">
+                    <Link to='/' className="flex title-font font-medium items-center dark:text-white text-black my-1 md:mb-0">
                         <img src={logo} className='h-8 w-8 rounded-xl' alt="" />
                         <span className="hidden ml-3 text-xl md:inline-block ">SongPedia</span>
                     </Link>
@@ -22,21 +22,21 @@ function NavBar(props) { //toggleTheme
                         <ul className=" pt-4 space-y-3 md:space-y-0 text-base md:flex md:justify-between  md:pt-0">
 
                             <li>
-                                <Link to="/" className="mr-5 hover:text-white hover:dark:text-black cursor-pointer" onClick={() => document.getElementById("menu").classList.toggle('hidden')}>Home
+                                <Link to="/" className="mr-5 hover:text-black hover:dark:text-white cursor-pointer" onClick={() => document.getElementById("menu").classList.toggle('hidden')}>Home
                                 </Link>
                             </li>
                             <hr className='dark:border-gray-700 border-light-200' />
                             <li>
-                                <Link to="/search" className="mr-5 hover:text-white hover:dark:text-black cursor-pointer" onClick={() => document.getElementById("menu").classList.toggle('hidden')}>Search
+                                <Link to="/search" className="mr-5 hover:text-black hover:dark:text-white cursor-pointer" onClick={() => document.getElementById("menu").classList.toggle('hidden')}>Search
                                 </Link>
                             </li>
                             <hr className='dark:border-gray-700 border-light-200' />
                             <li>
-                                <Link to='/about' className="mr-5 hover:text-white hover:dark:text-black cursor-pointer" onClick={() => document.getElementById("menu").classList.toggle('hidden')} >About</Link>
+                                <Link to='/about' className="mr-5 hover:text-black hover:dark:text-white cursor-pointer" onClick={() => document.getElementById("menu").classList.toggle('hidden')} >About</Link>
                             </li>
                             <hr className='dark:border-gray-700 border-light-200' />
                             <li>
-                                <Link to='/terms' className="mr-5 hover:text-white hover:dark:text-black cursor-pointer" onClick={() => document.getElementById("menu").classList.toggle('hidden')}>Terms of Use</Link>
+                                <Link to='/terms' className="mr-5 hover:text-black hover:dark:text-white cursor-pointer" onClick={() => document.getElementById("menu").classList.toggle('hidden')}>Terms of Use</Link>
                             </li>
                             <hr className='dark:border-gray-700 border-light-200' />
                             <li>
