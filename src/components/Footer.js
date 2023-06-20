@@ -3,6 +3,7 @@ import React from 'react'
 function Footer(props) {
     return (
         <div className={props.theme}>
+        <div class="powr-hit-counter" id="7aa2be3e_1687253205"></div><script src="https://www.powr.io/powr.js?platform=react"></script>
             <footer className="text-black dark:text-gray-400 bg-light-100 dark:bg-deep-900 body-font mt-auto">
                 <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
                     <a className="flex title-font font-medium items-center dark:text-white text-black mb-4 md:mb-0">
