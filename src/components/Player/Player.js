@@ -203,11 +203,31 @@ function Player(props) {
 
 
                                     </button>
-
-                                    <div className="flex-1">
+  <div className="flex-1">
 
                                     </div>
-                                    Download
+                                    Low Quality 
+                                    <button className="focus:outline-none pr-4 group" id="downloadBtn" onClick={downloadSong}>
+                                        <svg className="w-4 h-4 group-hover:dark:text-white group-hover:text-gray-800 " viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5" />
+                                        </svg>
+                                    </button>
+<div className="flex-1">
+
+                                    </div>
+                                    Medium Quality 
+                                    <button className="focus:outline-none pr-4 group" id="downloadBtn" onClick={downloadSong}>
+                                        <svg className="w-4 h-4 group-hover:dark:text-white group-hover:text-gray-800 " viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5" />
+                                        </svg>
+                                    </button>
+                                    
+<div className="flex-1">
+
+                                    </div>
+                                    High Quality 
                                     <button className="focus:outline-none pr-4 group" id="downloadBtn" onClick={downloadSong}>
                                         <svg className="w-4 h-4 group-hover:dark:text-white group-hover:text-gray-800 " viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
