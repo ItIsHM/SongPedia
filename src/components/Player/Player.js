@@ -30,7 +30,7 @@ function Player(props) {
 
         const url = props.details.downloadUrl[4]["link"]
 
-        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]}.m4a`
+        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.m4a`
 
 
 
@@ -57,7 +57,7 @@ function Player(props) {
 
         const url = props.details.downloadUrl[3]["link"]
 
-        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]}.m4a`
+        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 160kbps SongPedia.m4a`
 
 
 
@@ -84,7 +84,7 @@ function Player(props) {
 
         const url = props.details.downloadUrl[2]["link"]
 
-        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]}.m4a`
+        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 96kbps SongPedia.m4a`
 
 
 
