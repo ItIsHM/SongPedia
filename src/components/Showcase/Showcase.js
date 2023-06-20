@@ -118,7 +118,8 @@ function Showcase(props) {
     return (
         <div className={props.theme}>
             {/* <div className="text-4xl text-pink-300 mx-5 mb-2 ">Good evening,</div> */}
-            <section className="text-black dark:text-gray-400 bg-light-100 dark:bg-deep-900 body-font justify-center py-5">
+            <section className="text-white dark:text-gray-400 bg-light-100 dark:bg-deep-900 body-font justify-center py-5">
+        
                 <div className="container px-5 py-24 mx-auto mb-0 ">
 
                     <Heading title="Trending Now" />
