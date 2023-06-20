@@ -24,7 +24,7 @@ function App() {
   const [progress, setProgress] = useState(0) //progress of loading bar
   const [details, setDetails] = useState(null)
   const [alert, setAlert] = useState(null)
-  const [theme, setTheme] = useState("light")
+  const [theme, setTheme] = useState("dark")
 
   const [albumId, setAlbumId] = useState(null)
   const [playlistId, setPlaylistId] = useState(null)
