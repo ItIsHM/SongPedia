@@ -20,7 +20,7 @@ function Player(props) {
     }
 
     /**
-     * Starts downloading the song from link sent in props.
+     High Quality
      */
     const downloadSong = async () => {
         if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
@@ -29,6 +29,60 @@ function Player(props) {
         props.setProgress(10)
 
         const url = props.details.downloadUrl[4]["link"]
+
+        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]}.m4a`
+
+
+
+        const response = await fetch(url)
+
+        props.setProgress(50)
+        const blob = await response.blob()
+
+        props.setProgress(70)
+        let blobUrl = window.URL.createObjectURL(blob);
+        downloadBlob(blobUrl, filename);
+
+    }
+
+
+    /**
+      Medium Quality 
+     */
+    const MediumSong = async () => {
+        if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
+
+        props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}...`)
+        props.setProgress(10)
+
+        const url = props.details.downloadUrl[3]["link"]
+
+        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]}.m4a`
+
+
+
+        const response = await fetch(url)
+
+        props.setProgress(50)
+        const blob = await response.blob()
+
+        props.setProgress(70)
+        let blobUrl = window.URL.createObjectURL(blob);
+        downloadBlob(blobUrl, filename);
+
+    }
+
+
+    /**
+     Low Quality 
+     */
+    const LowSong = async () => {
+        if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
+
+        props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}...`)
+        props.setProgress(10)
+
+        const url = props.details.downloadUrl[2]["link"]
 
         const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]}.m4a`
 
@@ -207,7 +261,7 @@ function Player(props) {
 
                                     </div>
                                     Low Quality 
-                                    <button className="focus:outline-none pr-4 group" id="downloadBtn" onClick={downloadSong}>
+                                    <button className="focus:outline-none pr-4 group" id="downloadBtn" onClick={LowSong}>
                                         <svg className="w-4 h-4 group-hover:dark:text-white group-hover:text-gray-800 " viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                             <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5" />
@@ -217,7 +271,7 @@ function Player(props) {
 
                                     </div>
                                     Medium Quality 
-                                    <button className="focus:outline-none pr-4 group" id="downloadBtn" onClick={downloadSong}>
+                                    <button className="focus:outline-none pr-4 group" id="downloadBtn" onClick={MediumSong}>
                                         <svg className="w-4 h-4 group-hover:dark:text-white group-hover:text-gray-800 " viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                             <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 12.8V2.5" />
