@@ -54,7 +54,6 @@ function App() {
   }, [])
 
   return (
-    <Analytics />
     <div className={theme} >
       <div className="bg-light-100 dark:bg-deep-900">
         
