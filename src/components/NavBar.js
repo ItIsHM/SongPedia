@@ -29,7 +29,7 @@ function NavBar(props) {
                             <li>
                                 <Link
                                     to="/"
-                                    className="mr-5 hover:text-white hover:dark:text-white cursor-pointer"
+                                    className="mr-5 text-white hover:text-white hover:dark:text-white cursor-pointer"
                                     onClick={() => document.getElementById("menu").classList.toggle('hidden')}
                                 >
                                     Home
