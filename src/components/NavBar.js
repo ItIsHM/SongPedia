@@ -19,7 +19,7 @@ function NavBar() {
                         className="h-6 w-6 cursor-pointer md:hidden block"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor"
+                        stroke="white" // Change the stroke color to white
                     >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
