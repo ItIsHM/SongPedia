@@ -25,7 +25,7 @@ function Player(props) {
     const downloadSong = async () => {
         if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
 
-        props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}...`)
+        props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}High Quality`)
         props.setProgress(10)
 
         const url = props.details.downloadUrl[4]["link"]
@@ -52,7 +52,7 @@ function Player(props) {
     const MediumSong = async () => {
         if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
 
-        props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}...`)
+        props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} Medium Quality`)
         props.setProgress(10)
 
         const url = props.details.downloadUrl[3]["link"]
@@ -79,7 +79,7 @@ function Player(props) {
     const LowSong = async () => {
         if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
 
-        props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}...`)
+        props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')}Low Quality`)
         props.setProgress(10)
 
         const url = props.details.downloadUrl[2]["link"]
@@ -180,7 +180,7 @@ function Player(props) {
         <>
             {/* Show player only if details are recieved */}
             {props.details && <div className={props.theme}>
-                <section className="py-2.5 text-gray-900 dark:text-gray-400 bg-light-100 dark:bg-deep-900 body-font px-4" id="player">
+                <section className="py-2.5 text-gray-900 dark:text-gray-400 bg-light-100 dark:bg-deep-900 body-font px-1" id="player">
                     <div className="min-h-screen bg-light-100 dark:bg-deep-900 flex flex-col items-center justify-center">
                         <div className="max-w-xl bg-light-200 dark:bg-deep-900 rounded-lg shadow-lg overflow-hidden">
                             <div className="relative">
