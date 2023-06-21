@@ -3,9 +3,8 @@ import React from 'react'
 function Footer(props) {
     return (
         <div className={props.theme}>
-        <div class="powr-hit-counter" id="7aa2be3e_1687253205"></div><script src="https://www.powr.io/powr.js?platform=react"></script>
             <footer className="text-black dark:text-gray-400 bg-light-100 dark:bg-deep-900 body-font mt-auto">
-                <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+                <div className="container px-5 py-1 mx-auto flex items-center sm:flex-row flex-col">
                     <a className="flex title-font font-medium items-center dark:text-white text-black mb-4 md:mb-0">
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
