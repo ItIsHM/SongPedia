@@ -43,13 +43,6 @@ function Player(props) {
 
 };
 
-const downloadBlob = (blobUrl, filename) => {
-  const a = document.createElement("a");
-  a.href = blobUrl;
-  a.download = filename;
-  a.click();
-  window.URL.revokeObjectURL(blobUrl);
-};
 
     /**
       Medium Quality 
