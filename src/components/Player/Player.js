@@ -30,7 +30,7 @@ function Player(props) {
 
         const url = props.details.downloadUrl[4]["link"]
 
-        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.m4a`
+        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`
 
 
 
