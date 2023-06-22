@@ -1,96 +1,69 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import fileDownload from 'js-file-download';
 
 function Player(props) {
-    // Download Functions 
-    /**
-     * Helper function for downloadSong
-     * @param {} blob The blobURL of the song.
-     * @param {string} filename The name with which to download the file.
-     */
-    
-    }
+  // Download Functions
+  /**
+   * Helper function for downloadSong
+   * @param {string} blob The blobURL of the song.
+   * @param {string} filename The name with which to download the file.
+   */
+  const downloadSong = async (blob, filename) => {
+    props.setProgress(50);
+    fileDownload(blob, filename); // Using js-file-download library to download the file
+    props.setProgress(90);
+    props.setProgress(100);
+  };
 
-    /**
-     High Quality
-     */
-    
+  /** High Quality */
+  const downloadHighQualitySong = async () => {
+    if (!window.confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false;
 
-const downloadSong = async () => {
-  if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false;
+    props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - High Quality`);
+    props.setProgress(10);
 
-  props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - High Quality`);
-  props.setProgress(10);
+    const url = props.details.downloadUrl[4]["link"];
+    const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`;
 
-  const url = props.details.downloadUrl[4]["link"];
+    const response = await fetch(url);
+    const blob = await response.blob();
 
-  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`;
+    downloadSong(blob, filename);
+  };
 
-  const response = await fetch(url);
+  /** Medium Quality */
+  const downloadMediumQualitySong = async () => {
+    if (!window.confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false;
 
-  props.setProgress(50);
-  const blob = await response.blob();
+    props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - Medium Quality`);
+    props.setProgress(10);
 
-  props.setProgress(70);
-  fileDownload(blob, filename); // Using js-file-download library to download the file
+    const url = props.details.downloadUrl[3]["link"];
+    const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 160kbps SongPedia.mp3`;
 
-  props.setProgress(90);
-  props.setProgress(100);
-};
+    const response = await fetch(url);
+    const blob = await response.blob();
 
+    downloadSong(blob, filename);
+  };
 
-    /**
-      Medium Quality 
-     */
-    const MediumSong = async () => {
-  if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false;
+  /** Low Quality */
+  const downloadLowQualitySong = async () => {
+    if (!window.confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false;
 
-  props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - High Quality`);
-  props.setProgress(10);
+    props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - Low Quality`);
+    props.setProgress(10);
 
-  const url = props.details.downloadUrl[3]["link"];
+    const url = props.details.downloadUrl[1]["link"];
+    const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 96kbps SongPedia.mp3`;
 
-  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`;
+    const response = await fetch(url);
+    const blob = await response.blob();
 
-  const response = await fetch(url);
+    downloadSong(blob, filename);
+  };
 
-  props.setProgress(50);
-  const blob = await response.blob();
-
-  props.setProgress(70);
-  fileDownload(blob, filename); // Using js-file-download library to download the file
-
-  props.setProgress(90);
-  props.setProgress(100);
-};
-
-
-
-    /**
-     Low Quality 
-     */
-   const LowSong = async () => {
-  if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false;
-
-  props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - High Quality`);
-  props.setProgress(10);
-
-  const url = props.details.downloadUrl[0]["link"];
-
-  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`;
-
-  const response = await fetch(url);
-
-  props.setProgress(50);
-  const blob = await response.blob();
-
-  props.setProgress(70);
-  fileDownload(blob, filename); // Using js-file-download library to download the file
-
-  props.setProgress(90);
-  props.setProgress(100);
-};
 
 
 
