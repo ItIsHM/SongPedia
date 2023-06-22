@@ -75,13 +75,7 @@ const downloadBlob = (blobUrl, filename) => {
 
 };
 
-const downloadBlob = (blobUrl, filename) => {
-  const a = document.createElement("a");
-  a.href = blobUrl;
-  a.download = filename;
-  a.click();
-  window.URL.revokeObjectURL(blobUrl);
-};
+
 
     /**
      Low Quality 
@@ -107,13 +101,7 @@ const downloadBlob = (blobUrl, filename) => {
 
 };
 
-const downloadBlob = (blobUrl, filename) => {
-  const a = document.createElement("a");
-  a.href = blobUrl;
-  a.download = filename;
-  a.click();
-  window.URL.revokeObjectURL(blobUrl);
-};
+
 
 
     const navigate = useNavigate(); //for navigating to /search if details are not supplied
