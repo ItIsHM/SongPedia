@@ -23,82 +23,97 @@ function Player(props) {
      High Quality
      */
     const downloadSong = async () => {
-        if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
+  if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false;
 
-        props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - High Quality`)
-        props.setProgress(10)
+  props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - High Quality`);
+  props.setProgress(10);
 
-        const url = props.details.downloadUrl[4]["link"]
+  const url = props.details.downloadUrl[4]["link"];
 
-        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`
+  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia`;
 
+  const response = await fetch(url);
 
+  props.setProgress(50);
+  const blob = await response.blob();
 
-        const response = await fetch(url)
+  props.setProgress(70);
+  let blobUrl = window.URL.createObjectURL(blob);
+  downloadBlob(blobUrl, filename);
 
-        props.setProgress(50)
-        const blob = await response.blob()
+};
 
-        props.setProgress(70)
-        let blobUrl = window.URL.createObjectURL(blob);
-        downloadBlob(blobUrl, filename);
-
-    }
-
+const downloadBlob = (blobUrl, filename) => {
+  const a = document.createElement("a");
+  a.href = blobUrl;
+  a.download = filename;
+  a.click();
+  window.URL.revokeObjectURL(blobUrl);
+};
 
     /**
       Medium Quality 
      */
     const MediumSong = async () => {
-        if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
+  if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false;
 
-        props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - Medium Quality`)
-        props.setProgress(10)
+  props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - High Quality`);
+  props.setProgress(10);
 
-        const url = props.details.downloadUrl[3]["link"]
+  const url = props.details.downloadUrl[3]["link"];
 
-        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 160kbps SongPedia.mp3`
+  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 160kbps SongPedia`;
 
+  const response = await fetch(url);
 
+  props.setProgress(50);
+  const blob = await response.blob();
 
-        const response = await fetch(url)
+  props.setProgress(70);
+  let blobUrl = window.URL.createObjectURL(blob);
+  downloadBlob(blobUrl, filename);
 
-        props.setProgress(50)
-        const blob = await response.blob()
+};
 
-        props.setProgress(70)
-        let blobUrl = window.URL.createObjectURL(blob);
-        downloadBlob(blobUrl, filename);
-
-    }
-
+const downloadBlob = (blobUrl, filename) => {
+  const a = document.createElement("a");
+  a.href = blobUrl;
+  a.download = filename;
+  a.click();
+  window.URL.revokeObjectURL(blobUrl);
+};
 
     /**
      Low Quality 
      */
-    const LowSong = async () => {
-        if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false
+   const LowSong = async () => {
+  if (!confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) return false;
 
-        props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - Low Quality`)
-        props.setProgress(10)
+  props.showAlert(`Downloading ${props.details.name.replace(/&quot;/g, '"')} - High Quality`);
+  props.setProgress(10);
 
-        const url = props.details.downloadUrl[2]["link"]
+  const url = props.details.downloadUrl[0]["link"];
 
-        const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 96kbps SongPedia.mp3`
+  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 90kbps SongPedia`;
 
+  const response = await fetch(url);
 
+  props.setProgress(50);
+  const blob = await response.blob();
 
-        const response = await fetch(url)
+  props.setProgress(70);
+  let blobUrl = window.URL.createObjectURL(blob);
+  downloadBlob(blobUrl, filename);
 
-        props.setProgress(50)
-        const blob = await response.blob()
+};
 
-        props.setProgress(70)
-        let blobUrl = window.URL.createObjectURL(blob);
-        downloadBlob(blobUrl, filename);
-
-    }
-
+const downloadBlob = (blobUrl, filename) => {
+  const a = document.createElement("a");
+  a.href = blobUrl;
+  a.download = filename;
+  a.click();
+  window.URL.revokeObjectURL(blobUrl);
+};
 
 
     const navigate = useNavigate(); //for navigating to /search if details are not supplied
