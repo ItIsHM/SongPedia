@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import fileDownload from 'js-file-download';
 
 function Player(props) {
@@ -10,7 +10,11 @@ function Player(props) {
    * @param {string} filename The name with which to download the file.
    */
   const downloadSong = async (blob, filename) => {
-    if (!window.confirm("Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.")) {
+    if (
+      !window.confirm(
+        'Please confirm that you understand and agree not to distribute or share the song you are downloading, and not to engage in any form of piracy.\nPlease note that all rights of the song belong to the respective labels and/or JioSaavn, and SongPedia will not be responsible if you are found to be engaged in any form of piracy.\nBy proceeding with the download, you acknowledge and agree to these terms and those stated in the Terms of Use.'
+      )
+    ) {
       return false;
     }
 
@@ -29,7 +33,9 @@ function Player(props) {
   /** High Quality */
   const downloadHighQuality = async () => {
     const url = props.details.downloadUrl[4].link;
-    const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`;
+    const filename =
+      props.details.name.replace(/&quot;/g, '"') +
+      ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`;
     const response = await fetch(url);
     const blob = await response.blob();
 
@@ -39,7 +45,9 @@ function Player(props) {
   /** Medium Quality */
   const downloadMediumQuality = async () => {
     const url = props.details.downloadUrl[3].link;
-    const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`;
+    const filename =
+      props.details.name.replace(/&quot;/g, '"') +
+      ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`;
     const response = await fetch(url);
     const blob = await response.blob();
 
@@ -49,7 +57,9 @@ function Player(props) {
   /** Low Quality */
   const downloadLowQuality = async () => {
     const url = props.details.downloadUrl[0].link;
-    const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`;
+    const filename =
+      props.details.name.replace(/&quot;/g, '"') +
+      ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia.mp3`;
     const response = await fetch(url);
     const blob = await response.blob();
 
@@ -64,14 +74,14 @@ function Player(props) {
 
   useEffect(() => {
     if (!props.details) {
-      navigate("/search");
+      navigate('/search');
       return;
     }
 
     document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - SongPedia`;
 
     const audio = audioRef.current;
-    document.getElementById("player").scrollIntoView(true);
+    document.getElementById('player').scrollIntoView(true);
 
     const handleLoadedMetadata = () => {
       setIsPlaying(true);
@@ -87,7 +97,9 @@ function Player(props) {
       setIsPlaying(false);
       setCurrentTime(0);
       audio.currentTime = 0;
-       audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+    };
+
+    audio.addEventListener('loadedmetadata', handleLoadedMetadata);
     audio.addEventListener('timeupdate', handleTimeUpdate);
     audio.addEventListener('ended', handleEnded);
 
