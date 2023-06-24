@@ -76,7 +76,7 @@ function Showcase(props) {
   }, []);
 
   return (
-    <div className={props.theme}>
+   /* <div className={props.theme}>
       <CookieConsent
         location="bottom"
         buttonText="Accept"
@@ -86,7 +86,7 @@ function Showcase(props) {
         expires={150}
       >
         This website uses cookies to ensure you get the best experience on our website.
-      </CookieConsent>
+      </CookieConsent> */
 
       <section className="text-white dark:text-gray-400 bg-light-100 dark:bg-deep-900 body-font justify-center py-5">
         <div className="container px-5 py-24 mx-auto mb-0 ">
