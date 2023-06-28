@@ -76,8 +76,8 @@ function Showcase(props) {
   }, []);
 
   return (
-   /* <div className={props.theme}>
-      <CookieConsent
+   <div className={props.theme}>
+     /* <CookieConsent
         location="bottom"
         buttonText="Accept"
         cookieName="yourCookieName"
