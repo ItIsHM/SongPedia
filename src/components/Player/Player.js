@@ -188,7 +188,7 @@ function Player(props) {
                                     <p className="w-fit opacity-70" id="artists_marquee">{props.details.primaryArtists}</p>
                                 </div>
                             </div>
-                            <audio ref={audioRef} src={props.details.downloadUrl[0]["link"]} />
+                            <audio ref={audioRef} src={props.details.downloadUrl[3]["link"]} />
 
                             {/* Slider  */}
                             <div>
