@@ -14,7 +14,7 @@ function Footer(props) {
 
                         <div className="ml-3">
                             <span className="text-xl block">SongPedia</span>
-                            <span className="text-xs block">By ꌗ ꓄ ꍏ ꓄ ꀎ ꌗ ꍏ ꋪ ꍟ ꍏ</span>
+                            <span className="text-xs block">By  ꌗ ꓄ ꍏ ꓄ ꀎ ꌗ  ꍏ ꋪ ꍟ ꍏ</span>
                         </div>
                     </a>
                     <p className="text-sm text-black dark:text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-0">
