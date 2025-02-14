@@ -16,7 +16,7 @@ function NavBar({ user }) {
                 <Link to='/' className="flex items-center text-xl font-medium">
                     
 <span className="text-xl block">SongPedia</span>
-                            <span className="text-xs block">Made for {user.displayName} </span>
+                            <span className="text-xs block">Made for {user.displayName} 🫰</span>
                 </Link>
 
                 {/* User Info & Menu */}
