@@ -176,7 +176,7 @@ function Player(props) {
             {/* Show player only if details are recieved */}
             {props.details && <div className={props.theme}>
                 <section className="py-2.5 text-gray-900 dark:text-gray-400 bg-light-100 dark:bg-deep-900 body-font px-1" id="player">
-                    <div className="min-h-[90vh] bg-light-100 dark:bg-deep-900 flex flex-col items-center justify-center">
+                    <div className=" bg-light-100 dark:bg-deep-900 flex flex-col items-center justify-center">
                         <div className="max-w-xl bg-light-200 dark:bg-deep-900 rounded-lg shadow-lg overflow-hidden">
                             <div className="relative">
                                 <img id="thumbnail" className="w-full h-96 object-cover"
