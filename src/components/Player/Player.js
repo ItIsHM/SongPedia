@@ -30,7 +30,7 @@ function Player(props) {
 
   const url = props.details.downloadUrl[4]["link"];
 
-  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps SongPedia`;
+  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 320kbps 🔍SongPedia`;
 
   const response = await fetch(url);
 
@@ -54,7 +54,7 @@ function Player(props) {
 
   const url = props.details.downloadUrl[3]["link"];
 
-  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 160kbps SongPedia`;
+  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 160kbps 🔍SongPedia`;
 
   const response = await fetch(url);
 
@@ -80,7 +80,7 @@ function Player(props) {
 
   const url = props.details.downloadUrl[0]["link"];
 
-  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 90kbps SongPedia`;
+  const filename = props.details.name.replace(/&quot;/g, '"') + ` - ${props.details.primaryArtists.split(',')[0]} 90kbps 🔍SongPedia`;
 
   const response = await fetch(url);
 
