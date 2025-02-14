@@ -77,7 +77,7 @@ function App() {
     if (loading) {
         return (
             <div className="flex justify-center items-center h-screen">
-                <span className="loader"></span> {/* Replaces the "Loading..." text */}
+                <p>Loading...</p> {/* Prevents flicker */}
             </div>
         );
     }
