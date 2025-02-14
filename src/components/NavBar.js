@@ -24,7 +24,6 @@ function NavBar({ user }) {
                     {user ? (
                         <>
                             <img src={user.photoURL} alt="Avatar" className="h-8 w-8 rounded-full" />
-                            <span>{user.displayName}</span>
                         </>
                     ) : (
                         <Link to="/login" className="px-4 py-2 bg-blue-500 rounded-lg">Login</Link>
