@@ -9,7 +9,8 @@ function NavBar() {
                 <nav className="flex flex-wrap items-center justify-between w-full py-2 md:py-3 px-4 text-lg fixed top-0 z-50 dark:text-gray-700 text-gray-400 dark:bg-light-200 bg-deep-900 body-font">
                     <Link to='/' className="flex title-font font-medium items-center dark:text-white text-white my-1 md:mb-0">
                         
-                        <span className="ml-3 text-xl">SongPedia</span>
+                        <span className="ml-3 text-xl block">SongPedia</span>
+        <span className="text-xs block">By  ꌗ ꓄ ꍏ ꓄ ꀎ ꌗ  ꍏ ꋪ ꍟ ꍏ</span>
                         
                     </Link>
 
