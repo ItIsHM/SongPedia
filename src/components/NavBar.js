@@ -1,51 +1,60 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getAuth, signOut } from 'firebase/auth';
 import logo from './logo.png';
 
-function NavBar({ user, handleLogout }) {
+function NavBar({ user }) {
+    const auth = getAuth();
+    const handleLogout = async () => {
+        await signOut(auth);
+    };
+
     return (
         <header>
-            <nav className="flex flex-wrap items-center justify-between w-full py-2 md:py-3 px-4 text-lg fixed top-0 z-50 dark:text-gray-700 text-gray-400 dark:bg-light-200 bg-deep-900 body-font">
+            <nav className="flex items-center justify-between w-full py-2 md:py-3 px-4 fixed top-0 z-50 bg-deep-900 text-white">
                 {/* Logo */}
-                <Link to="/" className="flex title-font font-medium items-center dark:text-white text-white my-1 md:mb-0">
-                    <img src={logo} alt="Logo" className="h-8 w-8" />
-                    <span className="ml-3 text-xl">SongPedia</span>
+                <Link to='/' className="flex items-center text-xl font-medium">
+                    <img src={logo} alt="Logo" className="h-8 w-auto" />
+                    <span className="ml-3">SongPedia</span>
                 </Link>
 
-                {/* Mobile Menu Button */}
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    id="menu-button"
-                    onClick={() => document.getElementById("menu").classList.toggle('hidden')}
-                    className="h-6 w-6 cursor-pointer md:hidden block"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="white"
-                >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-
-                {/* Navbar Links */}
-                <div className="hidden md:flex md:items-center space-x-6">
-                    <Link to="/" className="text-white hover:text-gray-300">Home</Link>
-                    <Link to="/search" className="text-white hover:text-gray-300">Search</Link>
-                    <Link to="/about" className="text-white hover:text-gray-300">About</Link>
-                    <Link to="/terms" className="text-white hover:text-gray-300">Terms</Link>
+                {/* User Info & Menu */}
+                <div className="flex items-center space-x-4">
+                    {user ? (
+                        <>
+                            <img src={user.photoURL} alt="Avatar" className="h-8 w-8 rounded-full" />
+                            <span>{user.displayName}</span>
+                        </>
+                    ) : (
+                        <Link to="/login" className="px-4 py-2 bg-blue-500 rounded-lg">Login</Link>
+                    )}
+                    
+                    {/* Menu Button */}
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        id="menu-button"
+                        onClick={() => document.getElementById("menu").classList.toggle('hidden')}
+                        className="h-6 w-6 cursor-pointer"
+                        viewBox="0 0 24 24"
+                        stroke="white"
+                        fill="none"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
                 </div>
 
-                {/* Profile & Logout Section */}
-                {user ? (
-                    <div className="flex items-center space-x-4">
-                        <img src={user.photoURL} alt="Profile" className="h-8 w-8 rounded-full border border-gray-300" />
-                        <span className="text-white">{user.displayName}</span>
-                        <button
-                            onClick={handleLogout}
-                            className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
-                        >
-                            Logout
-                        </button>
-                    </div>
-                ) : null}
+                {/* Dropdown Menu */}
+                <div className="hidden absolute right-4 top-12 bg-gray-800 p-4 rounded-lg shadow-lg" id="menu">
+                    <ul>
+                        <li><Link to="/" className="block py-2">Home</Link></li>
+                        <li><Link to="/search" className="block py-2">Search</Link></li>
+                        <li><Link to="/about" className="block py-2">About</Link></li>
+                        <li><Link to="/terms" className="block py-2">Terms</Link></li>
+                        {user && (
+                            <li><button onClick={handleLogout} className="block py-2 text-red-500">Logout</button></li>
+                        )}
+                    </ul>
+                </div>
             </nav>
         </header>
     );
