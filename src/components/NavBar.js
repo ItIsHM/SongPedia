@@ -8,12 +8,9 @@ function NavBar() {
             <header>
                 <nav className="flex flex-wrap items-center justify-between w-full py-2 md:py-3 px-4 text-lg fixed top-0 z-50 dark:text-gray-700 text-gray-400 dark:bg-light-200 bg-deep-900 body-font">
                     <Link to='/' className="flex title-font font-medium items-center dark:text-white text-white my-1 md:mb-0">
-                        <div className="ml-3">
-                            <span className="text-xl block">SongPedia</span>
-                            <span className="text-xs block">
-                                By&nbsp;&nbsp;ꌗ ꓄ ꍏ ꓄ ꀎ ꌗ&nbsp;&nbsp;ꍏ ꋪ ꍟ ꍏ
-                            </span>
-                        </div>
+                        
+                        <span className="ml-3 text-xl">SongPedia</span>
+                        
                     </Link>
 
                     <svg
@@ -23,7 +20,7 @@ function NavBar() {
                         className="h-6 w-6 cursor-pointer md:hidden block"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="white"
+                        stroke="white" // Change the stroke color to white
                     >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
