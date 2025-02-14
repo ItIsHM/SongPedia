@@ -28,11 +28,15 @@ function App() {
     const [playlistId, setPlaylistId] = useState(null);
 
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true); // Prevent flicker
 
     useEffect(() => {
-        auth.onAuthStateChanged((user) => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
             setUser(user);
+            setLoading(false); // Ensures no flicker
         });
+
+        return () => unsubscribe();
     }, []);
 
     const handleGoogleSignIn = async () => {
@@ -69,6 +73,14 @@ function App() {
     useEffect(() => {
         showAlert("By using SongPedia, you agree to be bound by the Terms of Use.");
     }, []);
+
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <p>Loading...</p> {/* Prevents flicker */}
+            </div>
+        );
+    }
 
     return (
         <div className={theme}>
