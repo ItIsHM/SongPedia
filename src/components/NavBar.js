@@ -14,8 +14,9 @@ function NavBar({ user }) {
             <nav className="flex items-center justify-between w-full py-2 md:py-3 px-4 fixed top-0 z-50 bg-deep-900 text-white">
                 {/* Logo */}
                 <Link to='/' className="flex items-center text-xl font-medium">
-                    <img src={logo} alt="Logo" className="h-8 w-auto" />
-                    <span className="ml-3">SongPedia</span>
+                    
+<span className="text-xl block">SongPedia</span>
+                            <span className="text-xs block">Made for {user.displayName} </span>
                 </Link>
 
                 {/* User Info & Menu */}
