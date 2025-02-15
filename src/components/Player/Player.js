@@ -284,7 +284,7 @@ function Player(props) {
                                         </svg>
                                     </button>
                                 </li>
-                                <li className="h-auto text-right text-lg pt-2">
+                                <li className="h-auto text-right text-sm pt-2">
                                     <p className="pr-8 pb-2" id="copyrights_label">{props.details.copyright}</p>
 
                                 </li>
