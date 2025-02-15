@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
-
+//https://rzn076.github.io/blogs/mpdhls.html?get=aHR0cHM6Ly93b3dvd29peS5jb20vbGl2ZS92MS83ZVRvWFptSmlGRmVFWjhRdmRXcmZZSEwrOWJuSjBoK2paRG9XMVFzcC10dUY2NFc2eXZJN1gwOGFCTlZIaVFqL21hc3Rlci5tM3U4&id=4jwq2ghe2o00m0v_67b08ca983906d23aa0f6081_1
 function NavBar({ user }) {
     const menuRef = useRef(null); // Ref for closing the menu
 
