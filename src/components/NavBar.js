@@ -31,7 +31,7 @@ function NavBar({ user }) {
                 {/* Logo */}
                 <Link to="/" className="flex flex-col">
                     <span className="text-xl font-medium">SongPedia</span>
-                    {user && <span className="text-xs">Made for {user.displayName}</span>}
+                    {user && <span className="text-xs">Made for <span className="green-400"> {user.displayName}</span></span>}
                 </Link>
 
                 {/* User Info & Menu */}
