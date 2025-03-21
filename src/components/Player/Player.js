@@ -102,20 +102,41 @@ function Player(props) {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const audioRef = useRef(null);
-
+    const setFavicon = (url) => {
+        
     useEffect(() => {
-        if (!props.details) {
-            navigate("/search")
-            return
+    if (!props.details) {
+        navigate("/search");
+        return;
+    }
+    document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - SongPedia`;
+    const audio = audioRef.current;
+    document.getElementById("player").scrollIntoView(true);
+
+    const setFavicon = (url) => {
+        const favicon = document.querySelector("link[rel='icon']");
+        if (favicon) {
+            favicon.href = url;
+        } else {
+            const newFavicon = document.createElement("link");
+            newFavicon.rel = "icon";
+            newFavicon.href = url;
+            document.head.appendChild(newFavicon);
         }
-        document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - SongPedia`
-        const audio = audioRef.current;
-        document.getElementById("player").scrollIntoView(true)
-        audio.addEventListener('loadedmetadata', () => {
-            setIsPlaying(true)
-            setDuration(audio.duration);
-            audio.play();
-        });
+    };
+
+    audio.addEventListener('loadedmetadata', () => {
+        setIsPlaying(true);
+        setDuration(audio.duration);
+        setFavicon(props.details.image[2]["link"]); // Set favicon dynamically when metadata is loaded
+        audio.play();
+    });
+
+    return () => {
+        setFavicon("/favicon.ico"); // Reset favicon on cleanup (e.g., component unmount)
+        audio.removeEventListener('loadedmetadata', () => {});
+    };
+}, []);
 
         audio.addEventListener('timeupdate', () => {
             setCurrentTime(audio.currentTime);
