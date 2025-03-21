@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function Player(props) {
 
-  // Download Functions (unchanged)
+  // Download Functions (fix)
   const downloadBlob = (blob, filename) => {
     var a = document.createElement('a');
     a.download = filename;
