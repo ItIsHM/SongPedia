@@ -114,48 +114,44 @@ function Player(props) {
     const audio = audioRef.current;
     document.getElementById("player").scrollIntoView(true);
 
+const setFavicon = (url) => {
+
+  useEffect(() => {
+    if (!props.details) {
+      navigate("/search");
+      return;
+    }
+    document.title = `Playing ${props.details.name.replace(/&quot;/g, '"')} - SongPedia`;
+
+    const audio = audioRef.current;
+    document.getElementById("player").scrollIntoView(true);
+
+    // Inner declaration that shadows the outer setFavicon
     const setFavicon = (url) => {
-        const favicon = document.querySelector("link[rel='icon']");
-        if (favicon) {
-            favicon.href = url;
-        } else {
-            const newFavicon = document.createElement("link");
-            newFavicon.rel = "icon";
-            newFavicon.href = url;
-            document.head.appendChild(newFavicon);
-        }
+      const favicon = document.querySelector("link[rel='icon']");
+      if (favicon) {
+        favicon.href = url;
+      } else {
+        const newFavicon = document.createElement("link");
+        newFavicon.rel = "icon";
+        newFavicon.href = url;
+        document.head.appendChild(newFavicon);
+      }
     };
 
     audio.addEventListener('loadedmetadata', () => {
-        setIsPlaying(true);
-        setDuration(audio.duration);
-        setFavicon(props.details.image[2]["link"]); // Set favicon dynamically when metadata is loaded
-        audio.play();
+      setIsPlaying(true);
+      setDuration(audio.duration);
+      setFavicon(props.details.image[2]["link"]); // Set favicon dynamically when metadata is loaded
+      audio.play();
     });
-
     return () => {
-        setFavicon("/favicon.ico"); // Reset favicon on cleanup (e.g., component unmount)
-        audio.removeEventListener('loadedmetadata', () => {});
+      setFavicon("/favicon.ico"); // Reset favicon on cleanup (e.g., component unmount)
+      audio.removeEventListener('loadedmetadata', () => {});
     };
-}, []);
+  }, []);
 
-        audio.addEventListener('timeupdate', () => {
-            setCurrentTime(audio.currentTime);
-        });
-
-        audio.addEventListener('ended', () => {
-            setIsPlaying(false);
-            setCurrentTime(0);
-            audio.currentTime = 0;
-        });
-
-        return () => {
-            audio.removeEventListener('loadedmetadata', () => { });
-            audio.removeEventListener('timeupdate', () => { });
-            audio.removeEventListener('ended', () => { });
-        }
-    }, []);
-
+}
     const handlePlayPause = () => {
         const audio = audioRef.current;
         if (isPlaying) {
