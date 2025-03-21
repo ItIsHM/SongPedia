@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from "react-router-dom";
 
 function Player(props) {
+    //fix
     // Download Functions 
     /**
      * Helper function for downloadSong
